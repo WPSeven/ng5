@@ -1,0 +1,32 @@
+<div class="container color-dark">
+	<div class="col">
+		<p>Add a bucket list item</p>
+	</div>
+
+	<div class="col">
+		<p>Your bucket list ({{ itemCount }})</p>
+	</div>
+
+</div>
+
+<div class="container color-light" [@goals]="goals.length">
+	<div class="col">
+	<p class="sm">
+	သင်ဘာလုပ်ခြင်လဲ၊
+	ဘဝရည်မှန်းချက်ပန်းတိုင် များကို အောက်မှာရေးနိုင်သည်
+	</p>
+
+		<form>
+			<input type="text" class="txt" name="item" placeholder="ဘဝရည်မှန်းချက် .." [(ngModel)]="goalText">
+			<input type="submit" class="btn" [value]="btnText" (click)="addItem()">
+		</form>
+
+	</div>
+
+	<div class="col">
+		<p class="life-container" *ngFor="let goal of goals; let i = index" (click)="removeItem(i)">
+			{{ goal }}
+		</p>
+	</div>
+
+</div>
